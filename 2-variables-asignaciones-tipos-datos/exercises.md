@@ -15,8 +15,22 @@
 
 ```bash
 cd 1-exercise
-python3 -m unittest 1-exercise/unit_test.py -v
+python3 -m unittest unit_test.py -v
 ```
+
+#### Explicación del comando de pruebas:
+El comando `python3 -m unittest unit_test.py -v` ejecuta las pruebas unitarias y se descompone así:
+
+1. `python3`: El intérprete de Python 3
+2. `-m`: Ejecuta un módulo como script
+3. `unittest`: El módulo de Python para pruebas unitarias
+4. `unit_test.py`: La ruta al archivo de pruebas
+5. `-v`: Modo verbose (detallado) que muestra información sobre cada prueba
+
+La salida mostrará:
+- El nombre de cada prueba ejecutada
+- El resultado de cada prueba (ok/fail)
+- Un resumen final con el total de pruebas ejecutadas
 
 **Ejercicio 2: Identificación de tipos de datos**
 
@@ -40,14 +54,14 @@ None                     #
 Indica cuáles de los siguientes nombres de variables son válidos en Python. Para los que no sean válidos, explica brevemente por qué no cumplen con las reglas de nomenclatura:
 
 ```
-mi_variable_1
-_contador
-nombreCompleto
-2_variable
-variable-larga
-VariableConMayusculas
-palabra reservada
-últimoElemento
+mi_variable_1 # valido
+_contador # valido
+nombreCompleto # valido
+2_variable # no valido, no puede iniciar por un numero
+variable-larga # no valido
+VariableConMayusculas # valido
+palabra reservada # no valido
+últimoElemento # no valido
 ```
 
 ### Ejercicio 4: Operaciones aritméticas y asignación
