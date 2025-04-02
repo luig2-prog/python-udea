@@ -10,6 +10,14 @@
 4.  Crea una variable llamada `es_estudiante_actualmente` y asígnale un valor booleano (`True` o `False`) según corresponda.
 5.  Imprime el valor de cada una de estas variables en líneas separadas utilizando la función `print()`.
 
+- Solution: [two_class.py](./1-exercise/two_class.py)
+- Unit test: [unit_test.py](./1-exercise/unit_test.py)
+
+```bash
+cd 1-exercise
+python3 -m unittest 1-exercise/unit_test.py -v
+```
+
 **Ejercicio 2: Identificación de tipos de datos**
 
 Para cada uno de los siguientes valores, escribe en un comentario el tipo de dato de Python que representa:
@@ -25,6 +33,7 @@ True                     #
 {1, 2, 3, 3}             #
 None                     #
 ```
+
 
 ### Ejercicio 3: Nombres de variables válidos
 
