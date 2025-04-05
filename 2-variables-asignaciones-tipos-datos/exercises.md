@@ -161,10 +161,98 @@ palabra reservada # no valido
    - `numero_texto` a int (debe fallar, maneja el error)
 3. Imprime cada resultado y su tipo usando `type()`
 
+### Ejercicio 13: Manipulación de Strings
+
+1. Crea una variable `texto` con el valor "Python es un lenguaje de programación versátil".
+2. Realiza las siguientes operaciones:
+   - Convierte todo el texto a mayúsculas y guárdalo en `texto_mayusculas`
+   - Convierte todo el texto a minúsculas y guárdalo en `texto_minusculas`
+   - Obtén la longitud del texto y guárdala en `longitud_texto`
+   - Reemplaza "Python" por "JavaScript" y guárdalo en `texto_reemplazado`
+   - Divide el texto en palabras y guárdalas en una lista llamada `palabras`
+3. Imprime todos los resultados.
+
+### Ejercicio 14: Slicing de Listas y Strings
+
+1. Crea una lista `numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`
+2. Crea una cadena `abecedario = "abcdefghijklmnopqrstuvwxyz"`
+3. Utiliza slicing para obtener:
+   - Los primeros 5 números
+   - Los últimos 3 números
+   - Los números en posiciones pares
+   - Los números en posiciones impares
+   - La lista invertida
+   - Las primeras 10 letras del abecedario
+   - El abecedario invertido
+4. Imprime todos los resultados.
+
+### Ejercicio 15: Operaciones con Sets
+
+1. Crea dos sets: `set_a = {1, 2, 3, 4, 5}` y `set_b = {4, 5, 6, 7, 8}`
+2. Realiza y guarda en variables las siguientes operaciones:
+   - La unión de ambos sets
+   - La intersección de ambos sets
+   - La diferencia set_a - set_b
+   - La diferencia set_b - set_a
+   - La diferencia simétrica (elementos en uno u otro set, pero no en ambos)
+3. Verifica si `set_a` es subconjunto de la unión calculada.
+4. Imprime todos los resultados.
+
+### Ejercicio 16: Métodos de Diccionarios
+
+1. Crea un diccionario `inventario` con al menos 5 productos y sus precios.
+2. Realiza las siguientes operaciones:
+   - Obtén una lista de todos los productos
+   - Obtén una lista de todos los precios
+   - Encuentra el producto más caro
+   - Calcula el valor total del inventario
+   - Crea una copia del diccionario e incrementa todos los precios en un 10%
+3. Imprime los resultados después de cada operación.
+
+### Ejercicio 17: Tuplas y Desempaquetado
+
+1. Crea una tupla `coordenadas` con tres valores (x, y, z).
+2. Crea una tupla `datos_personales` con (nombre, edad, ciudad, profesión).
+3. Realiza desempaquetado para asignar los valores a variables individuales.
+4. Crea una función que reciba las coordenadas y retorne la distancia al origen (0,0,0).
+5. Crea una lista de tuplas `personas` donde cada tupla contenga (nombre, edad) de diferentes personas.
+6. Utiliza desempaquetado en un bucle for para imprimir: "Nombre: [nombre], Edad: [edad]" para cada persona.
+
+### Ejercicio 18: Valores Truthy y Falsy
+
+1. Crea las siguientes variables y verifica si Python las considera True o False cuando se usan en una condición:
+   - `vacio = ""`
+   - `cero = 0`
+   - `nulo = None`
+   - `lista_vacia = []`
+   - `diccionario_vacio = {}`
+   - `uno = 1`
+   - `texto = "Hola"`
+   - `lista_con_elementos = [1, 2, 3]`
+2. Para cada variable, crea una estructura if-else que imprima "Es True" o "Es False" según corresponda.
+
+### Ejercicio 19: Operadores de Cortocircuito
+
+1. Crea una función `imprimir_mensaje()` que imprima "Función ejecutada" y retorne None.
+2. Crea las siguientes variables: `a = True`, `b = False`.
+3. Evalúa las siguientes expresiones y predice si la función se ejecutará o no:
+   - `a and imprimir_mensaje()`
+   - `b and imprimir_mensaje()`
+   - `a or imprimir_mensaje()`
+   - `b or imprimir_mensaje()`
+4. Explica por qué la función se ejecuta o no en cada caso.
+
+### Ejercicio 20: Conversión entre Tipos de Colecciones
+
+1. Crea un diccionario `datos = {"a": 1, "b": 2, "c": 3}`
+2. Realiza las siguientes conversiones:
+   - Convierte las claves del diccionario a una lista
+   - Convierte los valores del diccionario a una tupla
+   - Convierte el diccionario a una lista de tuplas (clave, valor)
+   - Crea un set con las claves del diccionario
+   - Crea un nuevo diccionario donde las claves y valores estén intercambiados
+3. Imprime todos los resultados.
+
 Cada ejercicio debe incluir:
 - Pruebas unitarias para validar los resultados
-- Comentarios explicando el código
 - Manejo de errores cuando sea apropiado
-
-¡Estos ejercicios te permitirán aplicar lo que hemos aprendido! Tómate tu tiempo para resolverlos y cuando estés listo, podemos revisarlos juntos. ¡Adelante!
-
