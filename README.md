@@ -6,11 +6,11 @@
 
 [Python Roadmap](https://roadmap.sh/python)
 
-[Python roadmap.md]('./roadmap.md')
+[Python roadmap.md](roadmap.md)
 
-[Python roadmapv2.md]('./roadmapv2.md')
+[Python roadmapv2.md](roadmapv2.md)
 
-[Python roadmapv3.md]('./roadmapv3.md')
+[Python roadmapv3.md](roadmapv3.md)
 
 
 ## `.gitignore`
