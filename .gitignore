@@ -57,4 +57,19 @@ cover/
 # Local development settings
 local_settings.py
 db.sqlite3
-db.sqlite3-journal 
+db.sqlite3-journal
+
+# Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+logs/
+
+# Archivos de configuración local
+config.local.ini
+*.local.conf
+
+# Directorios específicos del proyecto
+clases/*/__pycache__/
+output/
+temp/ 
