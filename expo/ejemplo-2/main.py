@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# Configurar el estilo de las gráficas de manera más simple
-plt.style.use('default')
-sns.set_theme()  # Usar el tema por defecto de seaborn
+# # Configurar el estilo de las gráficas de manera más simple
+# plt.style.use('default')
+# sns.set_theme()  # Usar el tema por defecto de seaborn
 
 # Cargar datos
 file_path = os.path.join(os.path.dirname(__file__), "datos_consumo.xlsx")
@@ -39,7 +39,7 @@ X = df[['Peso (kg)', 'Cilindrada (cc)', 'Tipo Motor']]
 y = df['Consumo (L/100km)']
 
 # Dividir datos en conjuntos de entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Crear y entrenar el modelo
 modelo = LinearRegression()
@@ -72,8 +72,11 @@ print(f"RMSE: {rmse:.4f} L/100km")
 
 # Visualizar predicciones vs valores reales
 plt.figure(figsize=(10, 6))
-plt.scatter(y_test, y_pred, alpha=0.5)
-plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
+# Usar seaborn regplot para un estilo más similar
+sns.regplot(x=y_test, y=y_pred, 
+            ci=95,  # Agregar intervalo de confianza del 95%
+            scatter_kws={'color': 'black'},  # Puntos negros como en la otra gráfica
+            line_kws={'color': 'red', 'linestyle': '--'})  # Línea roja punteada
 plt.xlabel('Consumo Real (L/100km)')
 plt.ylabel('Consumo Predicho (L/100km)')
 plt.title('Predicciones vs Valores Reales')
