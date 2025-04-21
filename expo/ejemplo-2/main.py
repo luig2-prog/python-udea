@@ -125,7 +125,7 @@ try:
     
     # Convertir tipo de motor a valor numérico
     tipo_motor_valor = 1 if tipo_motor.startswith('d') else 0
-    
+    print(f"Tipo de motor: {tipo_motor_valor}")    
     # Realizar predicción
     consumo = predecir_consumo(peso, cilindrada, tipo_motor_valor)
     

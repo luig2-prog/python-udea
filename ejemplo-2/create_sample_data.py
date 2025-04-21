@@ -9,8 +9,8 @@ n = 100
 
 # Generar datos base con distribuciones que nos den el resultado deseado
 data = {
-    'Peso (kg)': np.random.normal(1400, 200, n).clip(1000, 2000),
-    'Cilindrada (cc)': np.random.normal(1900, 300, n).clip(1200, 2500),
+    'Peso (kg)': np.random.normal(1300, 150, n).clip(1000, 1800),
+    'Cilindrada (cc)': np.random.normal(1800, 200, n).clip(1200, 2500),
     'Tipo Motor': np.random.choice([0, 1], n, p=[0.4, 0.6])
 }
 
@@ -20,14 +20,14 @@ df = pd.DataFrame(data)
 # Crear la columna de consumo con la relación deseada
 # Ajustamos los coeficientes para obtener ~6.0 L/100km para el caso específico
 consumo_base = (
-    0.003 * df['Peso (kg)'] +  # Aumentado para dar más peso
-    0.0015 * df['Cilindrada (cc)'] +  # Aumentado para dar más peso
-    -0.8 * df['Tipo Motor'] +  # Reducido el efecto del diésel
-    1.0  # Ajustado el término independiente
+    0.0025 * df['Peso (kg)'] +  # Ajustado para el caso objetivo
+    0.001 * df['Cilindrada (cc)'] +  # Ajustado para el caso objetivo
+    -1.0 * df['Tipo Motor'] +  # Efecto del diésel
+    2.5  # Término independiente ajustado
 )
 
 # Añadir ruido aleatorio pequeño
-ruido = np.random.normal(0, 0.3, n)
+ruido = np.random.normal(0, 0.2, n)
 df['Consumo (L/100km)'] = consumo_base + ruido
 
 # Asegurar que los consumos sean realistas (entre 4 y 12 L/100km)
@@ -41,13 +41,15 @@ df['Consumo (L/100km)'] = df['Consumo (L/100km)'].round(1)
 # Convertir tipo de motor a categoría
 df['Tipo Motor'] = df['Tipo Motor'].map({0: 'Gasolina', 1: 'Diésel'})
 
-# Añadir explícitamente nuestro caso objetivo
-df = pd.concat([df, pd.DataFrame({
-    'Peso (kg)': [1300],
-    'Cilindrada (cc)': [1800],
-    'Tipo Motor': ['Diésel'],
-    'Consumo (L/100km)': [6.0]
-})], ignore_index=True)
+# Añadir varios casos similares al objetivo para dar más peso a ese punto
+casos_objetivo = pd.DataFrame({
+    'Peso (kg)': [1300, 1290, 1310, 1300, 1295],
+    'Cilindrada (cc)': [1800, 1790, 1810, 1800, 1795],
+    'Tipo Motor': ['Diésel'] * 5,
+    'Consumo (L/100km)': [6.0, 5.9, 6.1, 6.0, 6.0]
+})
+
+df = pd.concat([df, casos_objetivo], ignore_index=True)
 
 # Verificar la predicción para nuestro caso específico
 caso_ejemplo = df[
