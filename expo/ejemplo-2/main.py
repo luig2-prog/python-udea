@@ -18,28 +18,19 @@ print(df.head())
 print("\nEstadísticas descriptivas:")
 print(df.describe())
 
-# Visualizar correlaciones
-plt.figure(figsize=(10, 8))
-correlation_matrix = df.corr()
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
-plt.title('Matriz de Correlación')
-plt.tight_layout()
-plt.savefig('correlacion_consumo.png')
-plt.close()
-
+# Preparamos los datos para el modelo
 X = df[['Peso (kg)', 'Cilindrada (cc)', 'Tipo Motor']]
 y = df['Consumo (L/100km)']
 
+# Entrenamos el modelo
 modelo = LinearRegression()
-modelo.fit(X, y)  # Usar todos los datos para entrenar
+modelo.fit(X, y)
 
-# Mostrar coeficientes del modelo
 print("\nCoeficientes del modelo:")
 for feature, coef in zip(X.columns, modelo.coef_):
     print(f"{feature}: {coef:.6f}")
 print(f"Intercepto: {modelo.intercept_:.6f}")
 
-# Crear ecuación del modelo
 ecuacion = f"""
 Consumo (L/100km) = {modelo.coef_[0]:.6f} × Peso (kg) + 
                     {modelo.coef_[1]:.6f} × Cilindrada (cc) + 
@@ -49,10 +40,9 @@ Consumo (L/100km) = {modelo.coef_[0]:.6f} × Peso (kg) +
 print("\nEcuación del modelo:")
 print(ecuacion)
 
-# Obtener predicciones para todos los datos
+# Predicciones para todos los datos
 y_pred = modelo.predict(X)
 
-# Visualizar predicciones vs valores reales
 plt.figure(figsize=(10, 6))
 sns.regplot(x=y, y=y_pred, 
             ci=95,
@@ -85,11 +75,11 @@ def predecir_consumo(peso, cilindrada, tipo_motor):
     })
     return modelo.predict(datos)[0]
 
-# Ejemplo de uso con el caso proporcionado
+# Ejemplo de uso
 print("\nEjemplo de predicción:")
 peso_ejemplo = 2000
 cilindrada_ejemplo = 1000
-tipo_motor_ejemplo = 1  # Diésel
+tipo_motor_ejemplo = 0 # Gasolina
 
 consumo_predicho = predecir_consumo(peso_ejemplo, cilindrada_ejemplo, tipo_motor_ejemplo)
 print(f"\nPara un vehículo con:")
@@ -98,7 +88,6 @@ print(f"- Cilindrada: {cilindrada_ejemplo} cc")
 print(f"- Motor: {'Diésel' if tipo_motor_ejemplo == 1 else 'Gasolina'}")
 print(f"\nConsumo predicho: {consumo_predicho:.1f} L/100km")
 
-# Interfaz interactiva para predicciones
 print("\n=== Predictor de Consumo de Combustible ===")
 print("\nIngrese los datos del vehículo:")
 
@@ -107,10 +96,8 @@ try:
     cilindrada = float(input("Cilindrada del motor (cc): "))
     tipo_motor = input("Tipo de motor (Gasolina/Diésel): ").lower()
     
-    # Convertir tipo de motor a valor numérico
     tipo_motor_valor = 1 if tipo_motor.startswith('d') else 0
-    print(f"Tipo de motor: {tipo_motor_valor}")    
-    # Realizar predicción
+    print(f"Tipo de motor: {'Diésel' if tipo_motor_valor == 1 else 'Gasolina'}")    
     consumo = predecir_consumo(peso, cilindrada, tipo_motor_valor)
     
     print(f"\nConsumo estimado: {consumo:.1f} L/100km")
