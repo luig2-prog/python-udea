@@ -5,7 +5,7 @@ import numpy as np
 np.random.seed(42)  # For reproducibility
 
 # Number of samples
-n = 1000
+n = 100
 
 # Generate base data
 data = {

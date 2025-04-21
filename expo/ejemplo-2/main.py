@@ -38,12 +38,9 @@ plt.close()
 X = df[['Peso (kg)', 'Cilindrada (cc)', 'Tipo Motor']]
 y = df['Consumo (L/100km)']
 
-# Dividir datos en conjuntos de entrenamiento y prueba
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-# Crear y entrenar el modelo
+# Crear y entrenar el modelo con todos los datos
 modelo = LinearRegression()
-modelo.fit(X_train, y_train)
+modelo.fit(X, y)  # Usar todos los datos para entrenar
 
 # Mostrar coeficientes del modelo
 print("\nCoeficientes del modelo:")
@@ -61,22 +58,15 @@ Consumo (L/100km) = {modelo.coef_[0]:.6f} × Peso (kg) +
 print("\nEcuación del modelo:")
 print(ecuacion)
 
-# Evaluar el modelo
-y_pred = modelo.predict(X_test)
-r2 = r2_score(y_test, y_pred)
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-
-print("\nMétricas de evaluación:")
-print(f"R² Score: {r2:.4f}")
-print(f"RMSE: {rmse:.4f} L/100km")
+# Obtener predicciones para todos los datos
+y_pred = modelo.predict(X)
 
 # Visualizar predicciones vs valores reales
 plt.figure(figsize=(10, 6))
-# Usar seaborn regplot para un estilo más similar
-sns.regplot(x=y_test, y=y_pred, 
-            ci=95,  # Agregar intervalo de confianza del 95%
-            scatter_kws={'color': 'black'},  # Puntos negros como en la otra gráfica
-            line_kws={'color': 'red', 'linestyle': '--'})  # Línea roja punteada
+sns.regplot(x=y, y=y_pred, 
+            ci=95,
+            scatter_kws={'color': 'black'},
+            line_kws={'color': 'red', 'linestyle': '--'})
 plt.xlabel('Consumo Real (L/100km)')
 plt.ylabel('Consumo Predicho (L/100km)')
 plt.title('Predicciones vs Valores Reales')
