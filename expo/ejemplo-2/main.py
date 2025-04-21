@@ -103,8 +103,8 @@ def predecir_consumo(peso, cilindrada, tipo_motor):
 
 # Ejemplo de uso con el caso proporcionado
 print("\nEjemplo de predicción:")
-peso_ejemplo = 1300
-cilindrada_ejemplo = 1800
+peso_ejemplo = 2000
+cilindrada_ejemplo = 1000
 tipo_motor_ejemplo = 1  # Diésel
 
 consumo_predicho = predecir_consumo(peso_ejemplo, cilindrada_ejemplo, tipo_motor_ejemplo)
