@@ -1,4 +1,3 @@
-# Importar librerías necesarias
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -8,18 +7,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# # Configurar el estilo de las gráficas de manera más simple
-# plt.style.use('default')
-# sns.set_theme()  # Usar el tema por defecto de seaborn
-
-# Cargar datos
+# Cargar datos desde el excel
 file_path = os.path.join(os.path.dirname(__file__), "datos_consumo.xlsx")
 df = pd.read_excel(file_path)
 
-# Convertir tipo de motor a numérico
 df['Tipo Motor'] = df['Tipo Motor'].map({'Gasolina': 0, 'Diésel': 1})
 
-# Mostrar información del dataset
 print("Primeras 5 filas del dataset:")
 print(df.head())
 print("\nEstadísticas descriptivas:")
@@ -34,11 +27,9 @@ plt.tight_layout()
 plt.savefig('correlacion_consumo.png')
 plt.close()
 
-# Preparar datos para el modelo
 X = df[['Peso (kg)', 'Cilindrada (cc)', 'Tipo Motor']]
 y = df['Consumo (L/100km)']
 
-# Crear y entrenar el modelo con todos los datos
 modelo = LinearRegression()
 modelo.fit(X, y)  # Usar todos los datos para entrenar
 

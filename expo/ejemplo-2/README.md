@@ -5,6 +5,7 @@ Este proyecto implementa un modelo de regresión lineal múltiple para predecir 
 ## Descripción
 
 El proyecto utiliza técnicas de machine learning para crear un modelo predictivo que estima el consumo de combustible de un vehículo basándose en tres características principales:
+
 - Peso del vehículo (kg)
 - Cilindrada del motor (cc)
 - Tipo de motor (Gasolina/Diésel)
@@ -54,6 +55,7 @@ openpyxl
 ```
 
 Instalación:
+
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn openpyxl
 ```
@@ -61,11 +63,13 @@ pip install pandas numpy scikit-learn matplotlib seaborn openpyxl
 ## Uso
 
 1. Generar datos de entrenamiento:
+
 ```bash
 python create_sample_data.py
 ```
 
 2. Ejecutar el modelo:
+
 ```bash
 python main.py
 ```
@@ -75,6 +79,7 @@ python main.py
 ## Aplicaciones Prácticas
 
 Este modelo puede ser utilizado para:
+
 - Diseño y desarrollo de vehículos
 - Optimización de eficiencia de combustible
 - Comparación de diferentes configuraciones de vehículos
@@ -84,6 +89,7 @@ Este modelo puede ser utilizado para:
 ## Ejemplo de Uso
 
 Para un vehículo con las siguientes características:
+
 - Peso: 1300 kg
 - Cilindrada: 1800 cc
 - Motor: Diésel
@@ -97,6 +103,7 @@ El modelo predecirá su consumo en L/100km.
 2. **Linealidad**: El modelo asume relaciones lineales entre las variables, lo cual es una simplificación.
 
 3. **Variables Limitadas**: Existen otros factores que afectan el consumo:
+
    - Aerodinámica
    - Condiciones de manejo
    - Estado del vehículo
@@ -109,6 +116,7 @@ El modelo predecirá su consumo en L/100km.
 ## Mejoras Futuras
 
 1. Incorporar más variables:
+
    - Coeficiente aerodinámico
    - Relación de transmisión
    - Edad del vehículo
@@ -122,7 +130,68 @@ El modelo predecirá su consumo en L/100km.
 ## Contribuciones
 
 Se aceptan contribuciones para mejorar el modelo. Algunas áreas de mejora:
+
 - Añadir más variables predictoras
 - Mejorar la generación de datos sintéticos
 - Implementar validación cruzada
-- Añadir tests unitarios 
+- Añadir tests unitarios
+
+# Notas:
+
+`df.describe()`
+
+Genera estadísticas descriptivas de todas las columnas numéricas:
+
+- `count` (Número de datos):
+Cuenta cuántas observaciones válidas hay en cada columna
+Útil para detectar datos faltantes
+
+Ejemplo: Si tienes 100 vehículos pero count=98, significa que faltan datos de 2 vehículos
+
+- `mean` (Promedio)
+
+Suma de todos los valores dividida por el número de observaciones
+Representa el valor "típico" o central
+
+Ejemplo: Si el consumo medio es 6.5 L/100km, es el consumo "típico" de los vehículos
+
+- `std` (Desviación estándar)
+
+Mide qué tan dispersos están los datos respecto al promedio
+Valores más altos indican mayor dispersión
+
+Ejemplo: Una std de 1.5 L/100km en consumo significa que la mayoría de valores están entre ±1.5L del promedio
+
+- `min` (Valor mínimo)
+
+El valor más bajo en los datos
+Útil para detectar valores extremos o errores
+
+Ejemplo: El consumo más bajo registrado en L/100km
+
+- `25%` (Primer cuartil)
+
+El valor por debajo del cual está el 25% de las observaciones
+Marca el límite inferior del "rango normal"
+
+Ejemplo: 25% de los vehículos consumen menos que este valor
+
+- `50%` (Mediana)
+El valor que divide el conjunto de datos en dos mitades
+Más robusta que la media para datos con valores extremos
+
+Ejemplo: La mitad de los vehículos consume menos que este valor
+
+- `75%` (Tercer cuartil)
+
+El valor por debajo del cual está el 75% de las observaciones
+Marca el límite superior del "rango normal"
+
+Ejemplo: 75% de los vehículos consumen menos que este valor
+
+- `max` (Valor máximo)
+
+El valor más alto en los datos
+Útil para detectar valores extremos o errores
+
+Ejemplo: El consumo más alto registrado en L/100km
