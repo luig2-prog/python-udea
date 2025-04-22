@@ -73,7 +73,7 @@ def predecir_consumo(peso, cilindrada, tipo_motor):
         'Cilindrada (cc)': [cilindrada],
         'Tipo Motor': [tipo_motor]
     })
-    return modelo.predict(datos)[0]
+    return modelo.predict(datos)
 
 # Ejemplo de uso
 print("\nEjemplo de predicción:")
@@ -86,7 +86,7 @@ print(f"\nPara un vehículo con:")
 print(f"- Peso: {peso_ejemplo} kg")
 print(f"- Cilindrada: {cilindrada_ejemplo} cc")
 print(f"- Motor: {'Diésel' if tipo_motor_ejemplo == 1 else 'Gasolina'}")
-print(f"\nConsumo predicho: {consumo_predicho:.1f} L/100km")
+print(f"\nConsumo predicho: {consumo_predicho[0]:.1f} L/100km")
 
 print("\n=== Predictor de Consumo de Combustible ===")
 print("\nIngrese los datos del vehículo:")
@@ -99,8 +99,8 @@ try:
     tipo_motor_valor = 1 if tipo_motor.startswith('d') else 0
     print(f"Tipo de motor: {'Diésel' if tipo_motor_valor == 1 else 'Gasolina'}")    
     consumo = predecir_consumo(peso, cilindrada, tipo_motor_valor)
-    
-    print(f"\nConsumo estimado: {consumo:.1f} L/100km")
+    print(f"\nDataFrame resultante: {consumo}")
+    print(f"\nConsumo estimado: {consumo[0]:.1f} L/100km")
     
 except ValueError:
     print("Error: Por favor ingrese valores numéricos válidos para peso y cilindrada.") 

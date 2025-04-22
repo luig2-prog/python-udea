@@ -195,3 +195,13 @@ El valor más alto en los datos
 Útil para detectar valores extremos o errores
 
 Ejemplo: El consumo más alto registrado en L/100km
+
+
+
+----
+
+`Intercepto (modelo.intercept_)`:
+
+Es el valor base del consumo
+
+El consumo cuando todas las variables son 0
