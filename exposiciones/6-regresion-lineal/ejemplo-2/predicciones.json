@@ -1,0 +1,31 @@
+{
+    "1248485914": [
+        {
+            "fecha": "2025-04-22 21:00:57",
+            "datos": {
+                "peso": 1300.0,
+                "cilindrada": 1800.0,
+                "tipo_motor": "Di\u00e9sel",
+                "consumo": 6.14877526298214
+            }
+        },
+        {
+            "fecha": "2025-04-22 21:01:30",
+            "datos": {
+                "peso": 1222.0,
+                "cilindrada": 1222.0,
+                "tipo_motor": "Gasolina",
+                "consumo": 7.091361274704974
+            }
+        },
+        {
+            "fecha": "2025-04-22 21:02:33",
+            "datos": {
+                "peso": 1200.0,
+                "cilindrada": 1600.0,
+                "tipo_motor": "Gasolina",
+                "consumo": 7.14415384304175
+            }
+        }
+    ]
+}
