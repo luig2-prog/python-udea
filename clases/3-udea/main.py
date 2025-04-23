@@ -45,9 +45,62 @@ Buscar una cadena y devolver True o False
 
 cadena = "Luis camina y luego corre por la calle"
 
-print(len(cadena))
-print("camina" in cadena)
-print(cadena.isdigit())
-print(cadena[2])
-print(cadena[0:4])
+print(f"len(cadena): {len(cadena)}")
+print(f"\"camina\" in cadena: {"camina" in cadena}")
+print(f"cadena.isdigit(): {cadena.isdigit()}")
+print(f"cadena[2]: {cadena[2]}")
+print("cadena[0:4]: ", cadena[0:4])
+print(f"cadena[:4] {cadena[:4]}")
+
+"""
+Castear
+No se puede concatenar int con texto
+edad = 29
+txt = "My name is Luis, I am " + edad
+"""
+
+edad = str(29)
+txt = "My name is Luis, I am " + edad
+print(txt)
+
+edad = 29
+txt = "My name is Luis, I am"
+print(txt, edad)
+
+"""
+Condicionales
+
+if condition_expresion:
+    code steps
+else:
+    code steps
+"""
+
+a = 20
+b = 2
+
+if a > b:
+    print(f"a = {a} is greater than b = {b}")
+else:
+    print(f"a = {a} is not greater than b = {b}")
+
+
+
+"""
+Casteo:
+
+Al castear un valor a booleano y es un solo dato siempre resulta True
+
+Con excepción a algunos valores que dan False
+"""
+print(bool("Is be True?"))
+print(bool(20))
+
+print(bool(False))
+print(bool(None))
+print(bool(0))
+print(bool(""))
+print(bool(()))
+print(bool([]))
+print(bool({}))
 
