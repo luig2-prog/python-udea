@@ -1,5 +1,7 @@
 # Fundamentos de aprendizaje de máquina y preparación de datos
 
+[sliders](https://docs.google.com/presentation/u/0/)
+
 ## Objetivo -
 
 Aprender conceptos y habilidades esenciales para desarrollar y gestionar proyectos de aprendizaje de máquina, enfocandos en la identificación de problemas, la recolección, preparación y analisis de los datos.
