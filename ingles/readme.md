@@ -1,0 +1,1 @@
+Let's get one fact straight, it's only a matter of time before we succesfully create an AI that surpasses the intelligence of a human
